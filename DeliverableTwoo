@@ -1,0 +1,65 @@
+﻿using System;
+
+namespace DeliverableTwoFL
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int correctCount = 0;
+            Console.WriteLine("How many coin flips?");
+            int numberOfFlips = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i <= numberOfFlips; i++)
+            {
+
+                int headsOrTailsGuessNumber;
+                Console.WriteLine("Heads Or Tails?");
+                string headsOrTailsGuess = Console.ReadLine();
+                if (headsOrTailsGuess == "heads")
+                {
+                    headsOrTailsGuessNumber = 1;
+                }
+                else
+                {
+                    headsOrTailsGuessNumber = 2;
+                }
+
+
+
+                Random rd = new Random();
+                int rand = rd.Next(1, 3);
+
+
+                if (rand != headsOrTailsGuessNumber && rand == 2)
+                {
+                    string hort = "tails";
+
+                    Console.WriteLine("Result: " + hort + "|| Number Correct: " + correctCount);
+
+
+                }
+                else if (rand == headsOrTailsGuessNumber && rand == 2)
+                {
+                    string hort = "tails";
+                    correctCount++;
+                    Console.WriteLine("Result: " + hort + "|| Number Correct: " + correctCount);
+                }
+                else if (rand != headsOrTailsGuessNumber && rand == 1)
+                {
+                    string hort = "heads";
+
+                    Console.WriteLine("Result: " + hort + "|| Number Correct: " + correctCount);
+
+
+                }
+                else if (rand == headsOrTailsGuessNumber && rand == 1)
+                {
+                    string hort = "heads";
+                    correctCount++;
+                    Console.WriteLine("Result: " + hort + "|| Number Correct: " + correctCount);
+                }
+            }
+        }
+    }
+}
